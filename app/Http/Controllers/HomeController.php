@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Product;
+//use App\Models\Category;
+//use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,20 +13,20 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $categories = Category::all()->take(15);
-        $products = Product::all()->take(5);
-
-        return view (
-        'home',
-            [
-                'categories' => $categories,
-                'products' => $products
-            ]
-        );
-    }
-}
+//    public function __construct()
+//    {
+//        $categories = Category::all()->take(15);
+//        $products = Product::all()->take(5);
+//
+//        return view (
+//        'home',
+//            [
+//                'categories' => $categories,
+//                'products' => $products
+//            ]
+//        );
+//    }
+//}
 
     /**
      * Show the application dashboard.
@@ -35,6 +35,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $categories = Category::all()->take(15);
+        $products = Product::all()->take(5);
+
+        return view('home',
+        [
+            'categories'=> $categories,
+            'products'=> $products
+        ]
+
+
+        );
     }
 }
